@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Sumana" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+ 
+</head>
+<body>
+ 
+<div id="accordion">
+
+  <div class="box_1">
+  	<a href="#" alt="location"><img src="css/img/Location Pin.png">Location</a>
+  </div>
+  <div class="box_1">
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+ 
+  <div class="box_2">
+  	<a href="#" alt="music"><img src="css/img/Headphones.png">Music</a>
+  </div>
+  <div class="box_2">	
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit
+    </p>
+  </div>
+   
+   <div class="box_3">
+   	<a href="#" alt="Notes"><img src="css/img/Lightning-Bolt.png">Notes</a>
+   </div>
+  <div class="box_3">	  
+    <p>
+   It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum 
+    </p>
+  </div>
+	
+
+	<div class="box_4">
+		<a href="#" alt="books"><img src="css/img/Bookmarks.png">Books</a>
+	</div>
+  <div class="box_4">
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci lu
+    </p>
+  </div>
+
+  	<div class="box_5">
+  		<a href="#" alt="tenddances"><img src="css/img/Lightbulb.png">Tenddances</a>
+  	</div>
+  <div class="box_5">
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada 
+    </p>
+  </div>
+</div>
+
+<div class="rating">
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
+
+
+
+<div id="modal_form">
+    <span id="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+</div>
+<div id="overlay"></div>
+ 
+<a href="#" class="modal"><i class="fa fa-rocket fa-5x" aria-hidden="true">CLICK!</i></a>
+ 
+ <script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+
+
+
+<script>
+	$(document).ready(function() {
+ 
+    $('.modal').click( function(event){
+        event.preventDefault();
+        $('#overlay').fadeIn(400, // анимируем показ обложки
+            function(){ // далее показываем мод. окно
+                $('#modal_form') 
+                    .css('display', 'block')
+                    .animate({opacity: 1, top: '50%'}, 200);
+        });
+    });
+ 
+    // закрытие модального окна
+    $('#modal_close, #overlay').click( function(){
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,  // уменьшаем прозрачность
+                function(){ // пoсле aнимaции
+                    $(this).css('display', 'none'); // скрываем окно
+                    $('#overlay').fadeOut(400); // скрывaем пoдлoжку
+                }
+            );
+    });
+ 
+});
+</script>
+ 
+</body>
+</html>
